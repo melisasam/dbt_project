@@ -2,7 +2,7 @@
 
 This dbt project performs basic transformation and aggregation on a CSV dataset to generate clean insights into monthly revenue trends.
 
-## 📦 Project Overview
+## Project Overview
 
 This project includes:
 
@@ -10,43 +10,42 @@ This project includes:
 - **Monthly revenue by client**: Aggregates monthly revenue per client.
 - **Monthly revenue by country**: Aggregates monthly revenue per country.
 
-## 🛠 Tools Used
+## Tools Used
 
 - [dbt-core](https://github.com/dbt-labs/dbt-core)
 - DuckDB (as the database)
 - CSV file as source data
 
-## 🧹 Data Cleaning (Staging)
+## Data Cleaning (Staging)
 
 The `stg_test_data.sql` model:
 - Casts data types
 - Normalizes names and countries
 - Filters out rows with null `client_id` or `purchase_date`
 
-## 📊 Final Models
+## Final Models
 
 - `monthly_revenue_by_client.sql`: Groups and sums revenue by client and month
 - `monthly_revenue_by_country.sql`: Groups and sums revenue by country and month
 
 Both filter on `purchase_status = 'PENDING'`.
 
-## 💡 Why DuckDB?
+## Why DuckDB?
 
 DuckDB was chosen because:
 - It's lightweight and runs locally
 - No complex setup or credentials needed
 - Easy integration with dbt and CSVs
 
-## ▶️ How to Run
+## How to Run
 
 1. Install dependencies:
    ```bash
    pip install dbt-core duckdb
-   ```bash
 
 2. Run the models:
    ```bash
-   pip install dbt-core duckdb
+   dbt run
 
 
 3. Inspect results in your DuckDB session or using:
